@@ -16,7 +16,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    buildFeatures{
+        viewBinding = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -47,4 +49,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.airbnb.android:lottie:6.4.0")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("app.rive:rive-android:8.7.0")
+    implementation("androidx.startup:startup-runtime:1.1.1")
 }
