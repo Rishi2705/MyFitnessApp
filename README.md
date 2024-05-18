@@ -1,0 +1,16 @@
+Sign in/Register page
+	->user
+		->user details
+			->each weeks plan ->btn -> webpage ka link 
+			->one to one interaction (intent use hoga)
+			-> user has to pay for facilities of trainer , dietitian , doc
+				->single se interact karne ka rupees 100(split 70,30) , teen se rupees 250 (65,65,65,55)
+	->trainer
+		->trainer details (certification and all)
+			->notification to trainer for interaction(notification use hoga)
+	->dietitian 
+		->dietitian details 
+			->notification to dietitian for interaction(ye teeno cases mein same)
+	->doctor 
+		->doctor details 
+			->notification to doc for interaction 
