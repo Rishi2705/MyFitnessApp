@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context=".DoctorActivity"
-    android:padding="30dp"
+    tools:context=".UserActivity"
     android:background="@color/main"
     android:orientation="vertical"
-    >
+    android:padding="30dp">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -60,7 +60,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
-                            android:hint="Enter your name:"
+                            android:hint="Create password"
+                            android:inputType="textPassword"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toTopOf="@+id/edt2"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +73,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout"
                         android:layout_width="match_parent"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="0dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
@@ -84,7 +85,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
-                            android:hint="Date of birth:"
+                            android:hint="Phone Number"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toTopOf="@+id/edt3"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +97,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputLayout3"
                         android:layout_width="match_parent"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="0dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
                         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
@@ -106,7 +107,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
-                            android:hint="Field of specification:"
+                            android:hint="Weight"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toTopOf="@+id/edt5"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +120,7 @@
                         android:id="@+id/textInputLayout4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="20dp"
                         app:layout_constraintBottom_toTopOf="@+id/textInputLayout5"
                         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
@@ -129,7 +130,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
-                            android:hint="Communication Address:"
+                            android:hint="Height"
                             android:textSize="20sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +143,8 @@
                         android:id="@+id/textInputLayout5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="60dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
                         app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
                         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
@@ -152,12 +154,35 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
-                            android:hint="Aaadhar number:"
-                            app:layout_constraintBottom_toTopOf="@+id/edt4"
+                            android:hint="City"
+                            app:layout_constraintBottom_toTopOf="@+id/edt6"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.5"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/edt3" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+                        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:hint="State"
+                            app:layout_constraintBottom_toTopOf="@+id/edt5"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/edt4"
+                            android:layout_marginBottom="30dp"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -180,6 +205,7 @@
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
+
 
 
 

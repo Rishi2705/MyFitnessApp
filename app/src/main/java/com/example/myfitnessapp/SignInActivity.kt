@@ -6,6 +6,7 @@ import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -67,6 +68,15 @@ class SignInActivity : AppCompatActivity() {
         val btn = findViewById<Button>(R.id.signupbtn)
         btn.setOnClickListener {
             startActivity(Intent(this,SignUpActivity::class.java))
+        }
+        val btn1 = findViewById<Button>(R.id.loginbtn)
+        btn1.setOnClickListener {
+            if(binding.email.text.toString() == "aksingh9363@gmail.com"&& binding.password.text.toString() == "chutiya123"){
+                startActivity(Intent(this,OptionsActicvity::class.java))
+            }else{
+                Toast.makeText(this@SignInActivity,"Wrong id or password",Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
 }
