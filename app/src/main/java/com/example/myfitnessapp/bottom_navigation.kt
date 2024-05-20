@@ -22,6 +22,7 @@ class bottom_navigation : AppCompatActivity() {
                 R.id.workout -> setcurrrentfragment(Workout)
                 R.id.supplement->setcurrrentfragment(supplement)
                 R.id.motivation->setcurrrentfragment(motivation)
+                R.id.menus->setcurrrentfragment(menu_fragment())
             }
             true
         }
