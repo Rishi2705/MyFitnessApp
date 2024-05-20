@@ -14,7 +14,8 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 class workout_fragment : Fragment() {
     private lateinit var webView: WebView
-    private lateinit var imageView: ImageView
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

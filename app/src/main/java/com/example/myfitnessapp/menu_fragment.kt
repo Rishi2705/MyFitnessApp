@@ -6,17 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.TextView
 
 
 class menu_fragment : Fragment() {
-    private lateinit var ImageView :ImageView
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.supplement, container, false)
-        return view
-    }
+
+
+
+
 }

@@ -15,6 +15,7 @@ class bottom_navigation : AppCompatActivity() {
         val Workout=workout_fragment()
         val supplement=supplement_fragment()
         val motivation=motivation_fragment()
+        val mn=modify()
         setcurrrentfragment(Workout)
         val btmnav=findViewById<BottomNavigationView>(R.id.btmnav)
         btmnav.setOnNavigationItemSelectedListener {
@@ -22,10 +23,11 @@ class bottom_navigation : AppCompatActivity() {
                 R.id.workout -> setcurrrentfragment(Workout)
                 R.id.supplement->setcurrrentfragment(supplement)
                 R.id.motivation->setcurrrentfragment(motivation)
-                R.id.menus->setcurrrentfragment(menu_fragment())
+                R.id.menus->setcurrrentfragment(mn)
             }
             true
         }
+
 
     }
     private fun setcurrrentfragment(fragment:Fragment) =

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.MyFitnessApp"
         tools:targetApi="31">
         <activity
+            android:name=".suggetion"
+            android:exported="false" />
+        <activity
+            android:name=".simple"
+            android:exported="false" />
+        <activity
             android:name=".PaidContent"
             android:exported="false" />
         <activity
