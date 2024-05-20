@@ -72,6 +72,7 @@ class SignUpActivity : AppCompatActivity() {
 
             val btn = findViewById<Button>(R.id.signupbtn)
             btn.setOnClickListener {
+                if(binding.email.text.toString() == "abc@gmail.com"&& binding.name.text.toString() == "abc")
                 startActivity(Intent(this,OptionsActicvity::class.java))
             }
     }

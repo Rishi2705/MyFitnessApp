@@ -4,11 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".motivation_fragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="motivation" />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <WebView
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/yt1"/>
+            <WebView
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/yt2"/>
+            <WebView
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/yt3"/>
+            <WebView
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/yt4"/>
+        </LinearLayout>
 
+
+    </ScrollView>
 </FrameLayout>

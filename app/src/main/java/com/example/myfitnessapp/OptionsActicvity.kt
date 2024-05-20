@@ -21,11 +21,11 @@ class OptionsActicvity : AppCompatActivity() {
             val rv = rg.checkedRadioButtonId
             val rv1 = findViewById<RadioButton>(rv)
             if (rv1.text.toString() == "User") {
-                startActivity(Intent(this, DoctorActivity::class.java))
+                startActivity(Intent(this, UserActivity::class.java))
             } else if (rv1.text.toString() == "Trainer") {
-                startActivity(Intent(this, DoctorActivity::class.java))
+                startActivity(Intent(this, TrainerActivity::class.java))
             } else if (rv1.text.toString() == "Dietitian") {
-                startActivity(Intent(this, DoctorActivity::class.java))
+                startActivity(Intent(this, DietitianActivity::class.java))
             }
             else if(rv1.text.toString() == "Doctor"){
                 startActivity(Intent(this, DoctorActivity::class.java))

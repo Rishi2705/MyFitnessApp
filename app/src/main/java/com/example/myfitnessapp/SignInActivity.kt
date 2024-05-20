@@ -57,7 +57,7 @@ class SignInActivity : AppCompatActivity() {
         binding.loginbtn.setOnClickListener{
             binding.password.clearFocus()
             Handler().postDelayed({
-                if(binding.email.text!!.isEmpty()|| binding.password.text!!.isEmpty()||(binding.email.text.toString() != "aksingh9363@gmail.com"||binding.password.text.toString() !="chutiya123")){
+                if(binding.email.text!!.isEmpty()|| binding.password.text!!.isEmpty()||(binding.email.text.toString() != "abc@gmail.com"||binding.password.text.toString() !="abc123")){
                     binding.signinchar.controller.fireState(ourmachinename, "trigFail")
                 }else{
                     binding.signinchar.controller.fireState(ourmachinename, "trigSuccess")
@@ -71,8 +71,9 @@ class SignInActivity : AppCompatActivity() {
         }
         val btn1 = findViewById<Button>(R.id.loginbtn)
         btn1.setOnClickListener {
-            if(binding.email.text.toString() == "aksingh9363@gmail.com"&& binding.password.text.toString() == "chutiya123"){
-                startActivity(Intent(this,OptionsActicvity::class.java))
+            if(binding.email.text.toString() == "abc@gmail.com"&& binding.password.text.toString() == "abc123"){
+                startActivity(Intent(this,bottom_navigation::class.java))
+                finish()
             }else{
                 Toast.makeText(this@SignInActivity,"Wrong id or password",Toast.LENGTH_SHORT).show()
             }
