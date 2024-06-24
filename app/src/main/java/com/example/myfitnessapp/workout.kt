@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ImageView
@@ -24,6 +25,15 @@ class workout_fragment : Fragment() {
         val view=inflater.inflate(R.layout.workout,container,false)
         webView=view.findViewById(R.id.wv)
         webView.loadUrl("https://my-gym-trainer.vercel.app/fitness.html")
+        webView.settings.javaScriptEnabled = true
+        webView.webViewClient = object : WebViewClient(){
+
+
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                view?.loadUrl(url!!)
+                return true
+            }
+        }
         return view
     }
 

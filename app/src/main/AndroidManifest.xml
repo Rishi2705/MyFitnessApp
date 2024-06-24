@@ -13,12 +13,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFitnessApp"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".suggetion"
+            android:name=".ResetPassword"
             android:exported="false" />
         <activity
-            android:name=".simple"
+            android:name=".suggetion"
             android:exported="false" />
         <activity
             android:name=".PaidContent"
@@ -49,6 +50,9 @@
             android:exported="false" />
         <activity
             android:name=".GetStartedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".workout_fragment"
             android:exported="false" />
         <activity
             android:name=".SplashScrenActivity"
