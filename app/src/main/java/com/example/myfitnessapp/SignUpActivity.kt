@@ -19,6 +19,8 @@ import com.example.myfitnessapp.databinding.ActivitySignUpBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -85,23 +87,39 @@ class SignUpActivity : AppCompatActivity() {
         btn.setOnClickListener {
             var email = em.text.toString()
             var password = pass.text.toString()
-            auth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("hello", "createUserWithEmail:success")
-                        Toast.makeText(baseContext,"Authentication Success",Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this,SignInActivity::class.java))
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w("Bye", "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext,
-                            "Authentication failed.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
+            if (isValidPassword(password)){
+                auth.createUserWithEmailAndPassword(email,password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("hello", "createUserWithEmail:success")
+                            Toast.makeText(baseContext,"Authentication Success",Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this,SignInActivity::class.java))
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w("Bye", "createUserWithEmail:failure", task.exception)
+                            Toast.makeText(
+                                baseContext,
+                                "Authentication failed.",
+                                Toast.LENGTH_SHORT,
+                            ).show()
+                        }
                     }
-                }
+            }
+            else{
+                Toast.makeText(this,"Password must contain one uppercase,one number and one special character",Toast.LENGTH_SHORT).show()
+            }
+
         }
+    }
+    fun isValidPassword(password: String?): Boolean {
+        val pattern: Pattern
+
+        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+
+        pattern = Pattern.compile(PASSWORD_PATTERN)
+        val matcher: Matcher = pattern.matcher(password)
+
+        return matcher.matches()
     }
 }

@@ -17,6 +17,9 @@ import com.example.myfitnessapp.databinding.ActivitySignInBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
@@ -84,28 +87,45 @@ class SignInActivity : AppCompatActivity() {
         btn1.setOnClickListener {
             var email = em.text.toString()
             var password = pasd.text.toString()
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d("hello", "signInWithEmail:success")
-                        startActivity(Intent(this,bottom_navigation::class.java))
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.d("bye", "signInWithEmail:failure = ${task.exception!!.message}")
-                        Toast.makeText(
-                            baseContext,
-                            "Authentication failed.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
+            if(isValidPassword(password)){
+                auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d("hello", "signInWithEmail:success")
+                            startActivity(Intent(this,bottom_navigation::class.java))
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.d("bye", "signInWithEmail:failure = ${task.exception!!.message}")
+                            Toast.makeText(
+                                baseContext,
+                                "Authentication failed.",
+                                Toast.LENGTH_SHORT,
+                            ).show()
+                        }
                     }
-                }
-
+                finish()
+            }
+            else{
+                Toast.makeText(this,"Password must contain one uppercase,one number and one special character",Toast.LENGTH_SHORT).show()
+            }
         }
         val rp = findViewById<Button>(R.id.reset_password)
         rp.setOnClickListener {
             var email = em.text.toString()
             startActivity(Intent(this,ResetPassword::class.java).putExtra("id",email))
+            finish()
         }
     }
+    fun isValidPassword(password: String?): Boolean {
+        val pattern: Pattern
+
+        val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{4,}$"
+
+        pattern = Pattern.compile(PASSWORD_PATTERN)
+        val matcher: Matcher = pattern.matcher(password)
+
+        return matcher.matches()
+    }
+
 }
