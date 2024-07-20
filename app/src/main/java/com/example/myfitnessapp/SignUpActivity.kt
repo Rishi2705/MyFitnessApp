@@ -94,7 +94,8 @@ class SignUpActivity : AppCompatActivity() {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("hello", "createUserWithEmail:success")
                             Toast.makeText(baseContext,"Authentication Success",Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this,SignInActivity::class.java))
+                            startActivity(Intent(this,OptionsActicvity::class.java))
+                            finish()
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Bye", "createUserWithEmail:failure", task.exception)

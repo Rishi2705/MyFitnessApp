@@ -12,30 +12,30 @@ class bottom_navigation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.bottom_navigation)
-        val Workout=workout_fragment()
-        val supplement=supplement_fragment()
-        val motivation=motivation_fragment()
-        val mn=modify()
+        val Workout = workout_fragment()
+        val supplement = supplement_fragment()
+        val motivation = motivation_fragment()
+        val mn = modify("name")
         setcurrrentfragment(Workout)
-        val btmnav=findViewById<BottomNavigationView>(R.id.btmnav)
+        val btmnav = findViewById<BottomNavigationView>(R.id.btmnav)
         btmnav.setOnNavigationItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.workout -> setcurrrentfragment(Workout)
-                R.id.supplement->setcurrrentfragment(supplement)
-                R.id.motivation->setcurrrentfragment(motivation)
-                R.id.menus->setcurrrentfragment(mn)
+                R.id.supplement -> setcurrrentfragment(supplement)
+                R.id.motivation -> setcurrrentfragment(motivation)
+                R.id.menus -> setcurrrentfragment(mn)
             }
             true
         }
 
 
     }
-    private fun setcurrrentfragment(fragment:Fragment) =
+
+    private fun setcurrrentfragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.frame,fragment)
+            replace(R.id.frame, fragment)
             commit()
         }
-
 
 
 }

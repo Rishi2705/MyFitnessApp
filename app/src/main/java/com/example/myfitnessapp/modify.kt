@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
@@ -22,9 +23,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [modify.newInstance] factory method to
  * create an instance of this fragment.
  */
-class modify : Fragment() {
+class modify(
+    var namse: String = ""
+) : Fragment() {
     private lateinit var btn1:Button
     private lateinit var btn2:Button
+    private lateinit var btn3:Button
+    private lateinit var name:String
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -44,6 +49,7 @@ class modify : Fragment() {
         val view = layoutInflater.inflate(R.layout.fragment_modify,container,false)
         btn1 = view.findViewById(R.id.btn1)
         btn2 = view.findViewById(R.id.btn2)
+        btn3 = view.findViewById(R.id.btn3)
         btn1.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(activity,SignInActivity::class.java))
@@ -73,7 +79,24 @@ class modify : Fragment() {
             }
 
         }
+
+        name = (requireActivity() as bottom_navigation).intent.getStringExtra("name").toString()
+        Log.d("MyTag", "onCreateView: $name")
+        btn3.setOnClickListener{
+            FirebaseInstance.db.collection("users")
+                .document(name)
+                .get()
+                .addOnSuccessListener {
+                    val user = it.toObject(User::class.java)
+                    val text = view.findViewById<TextView>(R.id.text)
+                    text.text = user.toString()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(activity,it.message,Toast.LENGTH_SHORT).show()
+                }
+        }
         return view
+
     }
 
     companion object {

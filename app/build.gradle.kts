@@ -53,6 +53,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("app.rive:rive-android:8.7.0")
     implementation("androidx.startup:startup-runtime:1.1.1")
-    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-firestore")
 }
